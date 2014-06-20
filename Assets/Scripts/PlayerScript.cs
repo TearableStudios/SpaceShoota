@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour {
 
 
 	public float moveSpeed = 4;
-	public float bulletSpeed = 30;
+	public float bulletSpeed = 800;
 
 	public GameObject shot;
 
@@ -71,6 +71,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void FireShot(){
+		shot.rigidbody.velocity = Vector3.zero;
 		shot.transform.position = transform.position;
 		shot.SetActive(true);
 		shot.rigidbody.AddForce(transform.up*bulletSpeed);

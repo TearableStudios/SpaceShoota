@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletScript : MonoBehaviour {
+public class BulletScript : MonoBehaviour 
+{
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+	{
 	}
 
-	void OnCollisionEnter(Collision col){
-		if(col.collider.gameObject.layer == LayerMask.NameToLayer("BulletLimits")){
+	void OnCollisionEnter(Collision col)
+	{
+		if(col.collider.gameObject.layer == LayerMask.NameToLayer("BulletLimits") ||
+		   col.collider.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+		{
 			gameObject.SetActive(false);
 			transform.position = new Vector3(50, 13, 69);
 			rigidbody.velocity = Vector3.zero;
